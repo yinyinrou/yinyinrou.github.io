@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .carousel {
+            width: 560px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .carousel ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .carousel ul li.first {
+            display: block;
+        }
+
+        .carousel .btns span {
+            width: 30px;
+            height: 30px;
+            background: aquamarine;
+            position: absolute;
+            opacity: 0.5;
+            top: 50%;
+            margin-top: -15px;
+            text-align: center;
+            font-weight: 900;
+            font-size: 20px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .btns .leftBtn {
+            left: 10px;
+        }
+
+        .btns .rightBtn {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="carousel">
+        <ul>
+            <li class="first"><a href="#"><img src="images/0.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/1.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/2.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/3.jpg" alt=""></a></li>
+            <li><a href="#"><img src="images/4.jpg" alt=""></a></li>
+        </ul>
+        <div class="btns">
+            <span class="leftBtn"><</span>
+            <span class="rightBtn">></span>
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script type="text/javascript" src="lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+    var index = 0;
+    $(".rightBtn").click(function () {
+        $(".carousel ul li").eq(index).fadeOut();
+        index++;
+        if (index > 4) {
+            index = 0;
+        }
+        $(".carousel ul li").eq(index).fadeIn();
+
+    })
+</script>
